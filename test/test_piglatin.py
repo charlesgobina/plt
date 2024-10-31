@@ -16,4 +16,9 @@ class TestPigLatin(unittest.TestCase):
         translator = PigLatin("")
         self.assertEqual("nil", translator.translate())
 
+    def test_translate_word_ending_with_y(self):
+        translator = PigLatin("any")
+        # append "nay" to words ending with y
+        self.assertEqual("anynay", translator.translate())
+
 
