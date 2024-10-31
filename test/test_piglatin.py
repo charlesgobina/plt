@@ -1,4 +1,6 @@
 import unittest
+from fnmatch import translate
+
 from piglatin import PigLatin
 from error import PigLatinError
 
@@ -12,5 +14,6 @@ class TestPigLatin(unittest.TestCase):
 
     def test_translate_empty_string(self):
         translator = PigLatin("")
-        self.assertEqual("nil", translator.get_phrase())
+        self.assertEqual("nil", translator.translate())
+
 
