@@ -52,3 +52,6 @@ class TestPigLatin(unittest.TestCase):
         # for individual words starting with multiple consonants, remove the consonants from the beginning of the word and put it at the end. Then add "ay" to the word
         self.assertEqual("ellohay orldway", translator.translate())
 
+    def test_translate_composite_words(self):
+        translator = PigLatin("well-being")
+        self.assertEqual("ellway-eingbay", translator.translate())

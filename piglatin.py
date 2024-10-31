@@ -1,3 +1,4 @@
+
 class PigLatin:
     def __init__(self, phrase: str):
         self.phrase = phrase
@@ -18,6 +19,10 @@ class PigLatin:
     def _translate_single_word(self, word: str) -> str:
         vowels = "aeiou"
         consonants = "bcdfghjklmnpqrstvwxyz"
+        
+        if '-' in word:
+            parts = word.split('-')
+            return '-'.join([self._translate_single_word(part) for part in parts])
         
         if word[0] in consonants:
             if all(char in consonants for char in word):
