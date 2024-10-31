@@ -9,22 +9,29 @@ class PigLatin:
         if self.phrase == "":
             return "nil"
         
+        words = self.phrase.split()
+        if len(words) > 1:
+            return " ".join([self._translate_single_word(word) for word in words])
+        
+        return self._translate_single_word(self.phrase)
+
+    def _translate_single_word(self, word: str) -> str:
         vowels = "aeiou"
         consonants = "bcdfghjklmnpqrstvwxyz"
         
-        if self.phrase[0] in consonants:
-            if all(char in consonants for char in self.phrase):
-                return self.phrase + "ay"
-            first_vowel_index = next((i for i, char in enumerate(self.phrase) if char in vowels), None)
+        if word[0] in consonants:
+            if all(char in consonants for char in word):
+                return word + "ay"
+            first_vowel_index = next((i for i, char in enumerate(word) if char in vowels), None)
             if first_vowel_index is None or first_vowel_index == 0:
-                return self.phrase + "ay"
-            return self.phrase[first_vowel_index:] + self.phrase[:first_vowel_index] + "ay"
+                return word + "ay"
+            return word[first_vowel_index:] + word[:first_vowel_index] + "ay"
         
-        if self.phrase.endswith("y"):
-            return self.phrase + "nay"
+        if word.endswith("y"):
+            return word + "nay"
         
-        if self.phrase[-1] in vowels:
-            return self.phrase + "yay"
+        if word[-1] in vowels:
+            return word + "yay"
         
-        return self.phrase + "ay"
+        return word + "ay"
 

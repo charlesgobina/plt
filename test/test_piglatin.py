@@ -41,5 +41,14 @@ class TestPigLatin(unittest.TestCase):
         # for words starting with multiple consonants, remove the consonants from the beginning of the word and put it at the end. Then add "ay" to the word
         self.assertEqual("ownknay", translator.translate())
 
-
+    def test_translate_multiple_words(self):
+        translator = PigLatin("hello world")
+        # first check if the word given you is separated by spaces by using the " " separator then proceed to do the following
+        # for multiple words, that is words separated by white spaces, you need to evaluate each word separately and then apply the rules below
+        # for the individual words ending with vowels, append "yay" to the end of the word
+        # for individual words starting with "y" append "nay" to the end of the word
+        # for individual words ending with consonant, append "ay" to the end of the word
+        # for individual words starting with consonants, remove the consonant from the beginning of the word and put it at the end. Then add "ay" to the word
+        # for individual words starting with multiple consonants, remove the consonants from the beginning of the word and put it at the end. Then add "ay" to the word
+        self.assertEqual("ellohay orldway", translator.translate())
 
