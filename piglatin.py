@@ -10,5 +10,7 @@ class PigLatin:
             return "nil"
         if self.phrase.endswith("y"):
             return self.phrase + "nay"
+        if self.phrase[-1] in "aeiou":
+            return self.phrase + "yay"
         return None
 
