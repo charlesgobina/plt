@@ -55,3 +55,14 @@ class TestPigLatin(unittest.TestCase):
     def test_translate_composite_words(self):
         translator = PigLatin("well-being")
         self.assertEqual("ellway-eingbay", translator.translate())
+
+    def test_translate_with_punctuation(self):
+        translator = PigLatin("hello world!")
+        # move punctuation to the very end of the line
+        self.assertEqual("ellohay orldway!", translator.translate())
+
+    def test_translate_upper_case(self):
+        translator = PigLatin("APPLE")
+        # check if the word is all upper uppercase then appy the rules and return the word as upper case still
+        # implement translation for uppercase words
+        self.assertEqual("APPLEYAY", translator.translate())
