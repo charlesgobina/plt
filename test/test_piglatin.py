@@ -33,8 +33,13 @@ class TestPigLatin(unittest.TestCase):
 
     def test_translate_word_starting_with_consonant(self):
         translator = PigLatin("hello")
-        # for words starting with consonants, remove the consonant from the begining of the word and put it at the end. Then add "ay" to the word
+        # for words starting with consonants, remove the consonant from the beginning of the word and put it at the end. Then add "ay" to the word
         self.assertEqual("ellohay", translator.translate())
+
+    def test_translate_word_starting_with_multiple_consonants(self):
+        translator = PigLatin("known")
+        # for words starting with multiple consonants, remove the consonants from the beginning of the word and put it at the end. Then add "ay" to the word
+        self.assertEqual("ownknay", translator.translate())
 
 
 
