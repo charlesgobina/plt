@@ -26,5 +26,10 @@ class TestPigLatin(unittest.TestCase):
         # for words ending with vowels, append "yay" to the end of the word
         self.assertEqual("appleyay", translator.translate())
 
+    def test_translate_word_ending_with_consonant(self):
+        translator = PigLatin("ask")
+        # for words ending with consonant, append "ay" to the end of the word
+        self.assertEqual("askay", translator.translate())
+
 
 

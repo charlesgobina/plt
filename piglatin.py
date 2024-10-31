@@ -12,5 +12,5 @@ class PigLatin:
             return self.phrase + "nay"
         if self.phrase[-1] in "aeiou":
             return self.phrase + "yay"
-        return None
+        return self.phrase + "ay"
 
